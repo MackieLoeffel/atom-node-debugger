@@ -44,9 +44,7 @@ class ProcessManager extends EventEmitter
 
         logger.error 'spawn', dropEmpty(args)
 
-        @process = childprocess.spawn nodePath, dropEmpty(args), {
-          detached: true
-        }
+        @process = childprocess.spawn nodePath, dropEmpty(args)
 
         @process.stdout.on 'data', (d) ->
           logger.info 'child_process', d.toString()
